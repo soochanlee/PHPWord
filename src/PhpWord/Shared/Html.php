@@ -36,7 +36,7 @@ class Html
      * @param bool $fullHTML If it's a full HTML, no need to add 'body' tag
      * @return void
      */
-    public static function addHtml($element, $html, $fullHTML = false)
+    public static function addHtml($element, $html, $fullHTML = false, $styles = array())
     {
         /*
          * @todo parse $stylesheet for default styles.  Should result in an array based on id, class and element,
@@ -61,7 +61,7 @@ class Html
         $dom->loadXML($html);
         $node = $dom->getElementsByTagName('body');
 
-        self::parseNode($node->item(0), $element);
+        self::parseNode($node->item(0), $element, $styles);
     }
 
     /**
